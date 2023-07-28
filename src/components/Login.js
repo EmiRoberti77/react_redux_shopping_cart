@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { ActionTypes } from '../store/ActionTypes';
+import { validateUser } from '../store/Actions';
 
 const Login = () => {
   const users = useSelector((state) => state.lr.users);
@@ -7,10 +7,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handlerUser = (e) => {
-    dispatch({
-      type: ActionTypes.updateUser,
-      payload: e.target.options[e.target.selectedIndex].text,
-    });
+    dispatch(validateUser(e.target.options[e.target.selectedIndex].text));
   };
 
   return (

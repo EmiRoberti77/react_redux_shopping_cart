@@ -1,6 +1,7 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { productReducer } from './ProductReducer';
 import { loginReducer } from './LoginReducer';
+import thunk from 'redux-thunk';
 
 export const initialData = {
   products: [
@@ -21,5 +22,5 @@ const rootReducer = combineReducers({
   pr: productReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 export default store;
