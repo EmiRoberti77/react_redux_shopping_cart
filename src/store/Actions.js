@@ -1,14 +1,9 @@
-import { ActionTypes } from './ActionTypes';
+import { updateUser } from './loginSlice';
 
 export const validateUser = (loggedUser) => {
   return (dispatch) => {
-    console.log('validate user');
     setTimeout(() => {
-      console.log('user validates');
-      dispatch({
-        type: ActionTypes.updateUser,
-        payload: loggedUser,
-      });
+      dispatch(updateUser(loggedUser));
     }, 2000);
   };
 };

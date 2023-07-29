@@ -7,7 +7,8 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handlerUser = (e) => {
-    dispatch(validateUser(e.target.options[e.target.selectedIndex].text));
+    const loggedUser = e.target.options[e.target.selectedIndex].text;
+    dispatch(validateUser(loggedUser));
   };
 
   return (

@@ -21,13 +21,13 @@ const productSlice = createSlice({
       state.total = state.total + parseInt(action.payload.price);
     },
     deleteItem: (state, action) => {
-      (state.cart = state.cart.filter(
-        (i, index) => index !== action.payload.index
-      )),
-        (state.total = state.total - action.payload.price);
+      const indexToRemove = action.payload.index;
+      const itemToRemove = state.cart[indexToRemove];
+      state.cart = state.cart.filter((i, index) => index !== indexToRemove);
+      state.total = state.total - itemToRemove.price;
     },
   },
 });
 
 export const { purchase, deleteItem } = productSlice.actions;
-export default productSlice;
+export default productSlice.reducer;
